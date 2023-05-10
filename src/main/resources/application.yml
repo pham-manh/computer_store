@@ -1,0 +1,22 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/computer_store?createDatabaseIfNotExist=true&useSSL=true
+    username: root
+    password: Manh.dev090301
+    driverClassName: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    show-sql: true
+    hibernate:
+      ddlAuto: create-drop
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+
+application:
+  security:
+    jwt:
+      secret-key: 404E635266556A586E3272357538782F413F4428472B4B6250645367566B5970
+      expiration: 3600000 # 1 hour
+      refresh-token:
+        expiration: 604800000 # 12 hours
