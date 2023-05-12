@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
+
 @Service
 @RequiredArgsConstructor
 public class ProductServiceImpl implements ProductService {
@@ -17,6 +19,7 @@ public class ProductServiceImpl implements ProductService {
 	private final HardDriverServiceImpl hardDriverService;
 	private final MainBoardServiceImpl mainBoardService;
 	private final RamServiceImpl ramService;
+
 	@Override
 	public List<BaseProduct> getAllProducts() {
 		List<BaseProduct> products = new ArrayList<>();
@@ -25,5 +28,20 @@ public class ProductServiceImpl implements ProductService {
 		products.addAll(mainBoardService.getAllMainBoards());
 		products.addAll(ramService.getAllRams());
 		return products;
+	}
+
+	@Override
+	public List<BaseProduct> findByName(String name) {
+		return repository.findByNameLike(name);
+	}
+
+	@Override
+	public List<BaseProduct> findByType(String type) {
+		return repository.findByType(type);
+	}
+
+	@Override
+	public Optional<BaseProduct> findById(Long id) {
+		return repository.findById(id);
 	}
 }

@@ -15,6 +15,8 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @Getter
 @Setter
+@DiscriminatorColumn(name="product_type",
+		discriminatorType = DiscriminatorType.STRING)
 public class BaseProduct {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
