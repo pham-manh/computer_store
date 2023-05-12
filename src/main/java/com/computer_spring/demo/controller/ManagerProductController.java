@@ -2,9 +2,9 @@ package com.computer_spring.demo.controller;
 
 import com.computer_spring.demo.domain.model.CPU;
 import com.computer_spring.demo.domain.model.HardDriver;
-import com.computer_spring.demo.service.impl.CPUServiceImpl;
-import com.computer_spring.demo.service.impl.HardDriverServiceImpl;
-import com.computer_spring.demo.service.impl.ProductServiceImpl;
+import com.computer_spring.demo.domain.model.MainBoard;
+import com.computer_spring.demo.domain.model.Ram;
+import com.computer_spring.demo.service.impl.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -18,6 +18,8 @@ public class ManagerProductController {
 	private final ProductServiceImpl productBaseService;
 	private final CPUServiceImpl cpuService;
 	private final HardDriverServiceImpl hardDriverService;
+	private final MainBoardServiceImpl mainBoardService;
+	private final RamServiceImpl ramService;
 
 	@GetMapping("/all")
 	public ResponseEntity<?> getAllProducts(){
@@ -42,5 +44,22 @@ public class ManagerProductController {
 		return ResponseEntity.ok(hardDriverService.addHardDrivers(hardDrivers));
 	}
 
+	@PostMapping("/add/main-board")
+	public ResponseEntity<?> addProduct_MainBoard(@RequestBody MainBoard mainboard){
+		return ResponseEntity.ok(mainBoardService.addMainboard(mainboard));
+	}
+	@PostMapping("/add/main-boards")
+	public ResponseEntity<?> addProduct_MainBoards(@RequestBody List<MainBoard> mainBoards){
+		return ResponseEntity.ok(mainBoardService.addMainBoards(mainBoards));
+	}
 
+
+	@PostMapping("/add/ram")
+	public ResponseEntity<?> addProduct_Ram(@RequestBody Ram ram){
+		return ResponseEntity.ok(ramService.addRam(ram));
+	}
+	@PostMapping("/add/rams")
+	public ResponseEntity<?> addProduct_Rams(@RequestBody List<Ram> rams){
+		return ResponseEntity.ok(ramService.addRams(rams));
+	}
 }

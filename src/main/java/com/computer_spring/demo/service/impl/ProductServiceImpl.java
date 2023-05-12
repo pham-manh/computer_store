@@ -15,12 +15,15 @@ public class ProductServiceImpl implements ProductService {
 	private final BaseProductRepository repository;
 	private final CPUServiceImpl cpuService;
 	private final HardDriverServiceImpl hardDriverService;
-
+	private final MainBoardServiceImpl mainBoardService;
+	private final RamServiceImpl ramService;
 	@Override
 	public List<BaseProduct> getAllProducts() {
 		List<BaseProduct> products = new ArrayList<>();
 		products.addAll(cpuService.getAll());
 		products.addAll(hardDriverService.getAllHardDriver());
+		products.addAll(mainBoardService.getAllMainBoards());
+		products.addAll(ramService.getAllRams());
 		return products;
 	}
 }
