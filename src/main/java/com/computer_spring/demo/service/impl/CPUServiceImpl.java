@@ -1,7 +1,8 @@
-package com.computer_spring.demo.service;
+package com.computer_spring.demo.service.impl;
 
 import com.computer_spring.demo.domain.model.CPU;
 import com.computer_spring.demo.repository.CpuRepository;
+import com.computer_spring.demo.service.CPUService;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
