@@ -26,6 +26,6 @@ public class ManagerProductController {
 	}
 	@GetMapping("/all")
 	public ResponseEntity<?> getAllProducts(){
-		return ResponseEntity.ok(productBaseService.getAllProducts());
+		return ResponseEntity.ok(List.of(productBaseService.getAllProducts()));
 	}
 }

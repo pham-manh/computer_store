@@ -27,5 +27,10 @@ public class BaseProduct {
 	private String description;
 	private String supplierName;
 	private int quantity;
+	@Transient
+	private boolean stockingStatus;
 
+	public boolean isStockingStatus() {
+		return this.getQuantity() > 0;
+	}
 }

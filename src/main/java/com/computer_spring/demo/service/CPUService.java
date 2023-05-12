@@ -11,4 +11,6 @@ public interface CPUService {
 	CPU saveCpu(CPU cpu);
 
 	List<CPU> saveCpu(List<CPU> cpuList);
+
+	List<CPU> getAll();
 }

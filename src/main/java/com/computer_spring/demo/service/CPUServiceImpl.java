@@ -27,4 +27,9 @@ public class CPUServiceImpl implements CPUService {
 	public List<CPU> saveCpu(List<CPU> cpuList) {
 		return cpuRepository.saveAll(cpuList);
 	}
+
+	@Override
+	public List<CPU> getAll() {
+		return cpuRepository.findAll();
+	}
 }
